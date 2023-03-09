@@ -41,13 +41,22 @@ const App = () => {
         name: newName,
         number: newNumber,
       }
-      contactService.createContact(newPerson).then((newContact) => {
-        setPersons(persons.concat(newContact))
-      })
-      setMessage({ text: `Added ${newName}`, type: "information" })
-      setTimeout(() => {
-        setMessage(DEFAULT_MESSAGE)
-      }, 3000)
+      contactService
+        .createContact(newPerson)
+        .then((newContact) => {
+          setPersons(persons.concat(newContact))
+          setMessage({ text: `Added ${newName}`, type: "information" })
+          setTimeout(() => {
+            setMessage(DEFAULT_MESSAGE)
+          }, 3000)
+        })
+        .catch((error) => {
+          setMessage({ text: error.response.data.error, type: "error" })
+          setTimeout(() => {
+            setMessage(DEFAULT_MESSAGE)
+          }, 3000)
+        })
+
       // If name is already in contacts
     } else if (
       window.confirm(
@@ -64,6 +73,12 @@ const App = () => {
           setPersons(
             persons.map((p) => (p.id === duplicate.id ? returnedPerson : p))
           )
+        })
+        .catch((error) => {
+          setMessage({ text: error.response.data.error, type: "error" })
+          setTimeout(() => {
+            setMessage(DEFAULT_MESSAGE)
+          }, 3000)
         })
     }
     setNewName("")

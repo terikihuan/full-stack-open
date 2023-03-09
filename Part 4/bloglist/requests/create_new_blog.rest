@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpZCI6IjY0MDlkNzQ5MjViYzA2OWI4MTU3NzY5YSIsImlhdCI6MTY3ODM2NjU1OCwiZXhwIjoxNjc4MzcwMTU4fQ.5fVN5hXqyFLuhrMmRR9009MCNZro9wDSh8jBAgdWBNg
+
+{
+  "title": "Best crypto projects 2023",
+  "author": "John",
+  "url": "crypto.com",
+  "likes": 12
+}
