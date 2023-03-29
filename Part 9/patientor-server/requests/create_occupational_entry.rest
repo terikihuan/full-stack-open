@@ -1,0 +1,16 @@
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+
+{
+  "type": "OccupationalHealthcare",
+  "description": "good",
+  "date": "2023-1-4",
+  "specialist": "Huan MD",
+  "diagnosisCodes": ["Z57.1", "N30.1"],
+  "employerName": "CIA",
+  "sickLeave": {
+    "startDate": "2022-1-4",
+    "endDate": "2022-1-7"
+  }
+}
